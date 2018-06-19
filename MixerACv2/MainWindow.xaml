@@ -6,7 +6,23 @@
         xmlns:local="clr-namespace:MixerACv2"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <TextBox Text="{Binding Text}"></TextBox>
-    </Grid>
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <Button Content="Ajouter des fichiers" Command="{Binding AddFiles}"></Button>
+            <Button Content="Vider la liste" Command="{Binding ClearFilesList}"></Button>
+            <Button Content="Supprimer la sélection" Command="{Binding RemoveSelectedFile}"></Button>
+            <Button Content="Renommage" Command="{Binding RenameFiles}"></Button>
+        </StackPanel>
+        
+        <DataGrid ItemsSource="{Binding Files}" 
+                  SelectedItem="{Binding SelectedFile}" 
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Ancien nom" Binding="{Binding OldName}">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Nouveau nom" Binding="{Binding NewName}">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
 </Window>
