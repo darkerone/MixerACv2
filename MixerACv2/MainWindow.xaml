@@ -79,9 +79,9 @@
                   SelectedItem="{Binding SelectedFile}" 
                   AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Ancien nom" Binding="{Binding OldName}" Width="*">
+                <DataGridTextColumn Header="Anciens noms" Binding="{Binding OldName}" Width="*">
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Nouveau nom" Binding="{Binding NewName}" Width="*">
+                <DataGridTextColumn Header="Nouveaux noms" Binding="{Binding NewName}" Width="*">
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
