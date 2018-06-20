@@ -4,25 +4,84 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MixerACv2"
+        xmlns:Fluent="clr-namespace:Fluent;assembly=Fluent"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MixerACv2" Height="350" Width="650">
+    <Window.Resources>
+        <Style TargetType="{x:Type Control}" x:Key="baseStyle">
+            <Setter Property="FontSize" Value="10" />
+        </Style>
+        <Style TargetType="{x:Type Border}" x:Key="boites">
+            <Setter Property="Margin" Value="10,5" />
+            <Setter Property="Padding" Value="10,0" />
+            <Setter Property="BorderBrush" Value="Gray" />
+            <Setter Property="BorderThickness" Value="1" />
+        </Style>
+        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource baseStyle}"></Style>
+        <Style TargetType="{x:Type Label}" BasedOn="{StaticResource baseStyle}"></Style>
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource baseStyle}"></Style>
+        <Style TargetType="{x:Type ListView}" BasedOn="{StaticResource baseStyle}"></Style>
+    </Window.Resources>
     <DockPanel>
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <Button Content="Ajouter des fichiers" Command="{Binding AddFiles}"></Button>
-            <Button Content="Vider la liste" Command="{Binding ClearFilesList}"></Button>
-            <Button Content="Supprimer la sélection" Command="{Binding RemoveSelectedFile}"></Button>
-            <Button Content="Renommage" Command="{Binding RenameFiles}"></Button>
-            <Button Content="Dérenommage" Command="{Binding UnrenameFiles}"></Button>
-            <Button Content="Enregistrer" Command="{Binding SaveFiles}"></Button> 
-        </StackPanel>
+        <Fluent:Ribbon DockPanel.Dock="Top" Margin="0,-15,0,0">
+            <Fluent:RibbonTabItem Header="" Height="0" Width="0">
+                <Fluent:RibbonGroupBox Header="Liste">
+                    <Fluent:Button x:Name="btn_AddFiles" 
+                            Command="{Binding AddFiles}"
+                            IsEnabled="True"
+                            Header="Ajouter des fichiers" 
+                            LargeIcon="../../Icons/add.png"
+                            Width="100">
+                    </Fluent:Button>
+                    <Fluent:Button x:Name="btn_ClearFilesList" 
+                            Command="{Binding ClearFilesList}"
+                            IsEnabled="True"
+                            Header="Vider la liste" 
+                            LargeIcon="../../Icons/trash.png"
+                            Width="100">
+                    </Fluent:Button>
+                    <Fluent:Button x:Name="btn_RemoveSelectedFile" 
+                            Command="{Binding RemoveSelectedFile}"
+                            IsEnabled="True"
+                            Header="Supprimer la sélection" 
+                            LargeIcon="../../Icons/cross.png"
+                            Width="100" VerticalAlignment="Center">
+                    </Fluent:Button>
+                    
+                </Fluent:RibbonGroupBox>
+                <Fluent:RibbonGroupBox Header="Opérations" VerticalAlignment="Center">
+                    <Fluent:Button x:Name="btn_RenameFiles" 
+                            Command="{Binding RenameFiles}"
+                            IsEnabled="True"
+                            Header="Renommage" 
+                            LargeIcon="../../Icons/rename.png"
+                            Width="100">
+                    </Fluent:Button>
+                    <Fluent:Button x:Name="btn_UnrenameFiles" 
+                            Command="{Binding UnrenameFiles}"
+                            IsEnabled="True"
+                            Header="Dérenommage" 
+                            LargeIcon="../../Icons/unrename.png"
+                            Width="100">
+                    </Fluent:Button>
+                    <Fluent:Button x:Name="btn_SaveFiles" 
+                            Command="{Binding SaveFiles}"
+                            IsEnabled="True"
+                            Header="Enregistrer" 
+                            LargeIcon="../../Icons/save.png"
+                            Width="100">
+                    </Fluent:Button>
+                </Fluent:RibbonGroupBox>
+            </Fluent:RibbonTabItem>
+        </Fluent:Ribbon>
         
         <DataGrid ItemsSource="{Binding Files}" 
                   SelectedItem="{Binding SelectedFile}" 
                   AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Ancien nom" Binding="{Binding OldName}">
+                <DataGridTextColumn Header="Ancien nom" Binding="{Binding OldName}" Width="*">
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="Nouveau nom" Binding="{Binding NewName}">
+                <DataGridTextColumn Header="Nouveau nom" Binding="{Binding NewName}" Width="*">
                 </DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
