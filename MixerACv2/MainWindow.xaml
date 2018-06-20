@@ -30,21 +30,21 @@
                             Command="{Binding AddFiles}"
                             IsEnabled="True"
                             Header="Ajouter des fichiers" 
-                            LargeIcon="../../Icons/add.png"
+                            LargeIcon="../../Icons/AddAccount.png"
                             Width="100">
                     </Fluent:Button>
                     <Fluent:Button x:Name="btn_ClearFilesList" 
                             Command="{Binding ClearFilesList}"
                             IsEnabled="True"
                             Header="Vider la liste" 
-                            LargeIcon="../../Icons/trash.png"
+                            LargeIcon="../../Icons/RejectApprovalRequest.png"
                             Width="100">
                     </Fluent:Button>
                     <Fluent:Button x:Name="btn_RemoveSelectedFile" 
                             Command="{Binding RemoveSelectedFile}"
                             IsEnabled="True"
                             Header="Supprimer la sélection" 
-                            LargeIcon="../../Icons/cross.png"
+                            LargeIcon="../../Icons/RecordsDeleteRecord.png"
                             Width="100" VerticalAlignment="Center">
                     </Fluent:Button>
                     
@@ -54,21 +54,21 @@
                             Command="{Binding RenameFiles}"
                             IsEnabled="True"
                             Header="Renommage" 
-                            LargeIcon="../../Icons/rename.png"
+                            LargeIcon="../../Icons/RenameItem.png"
                             Width="100">
                     </Fluent:Button>
                     <Fluent:Button x:Name="btn_UnrenameFiles" 
                             Command="{Binding UnrenameFiles}"
                             IsEnabled="True"
                             Header="Dérenommage" 
-                            LargeIcon="../../Icons/unrename.png"
+                            LargeIcon="../../Icons/ReviewDeleteAllMarkupInPresentation.png"
                             Width="100">
                     </Fluent:Button>
                     <Fluent:Button x:Name="btn_SaveFiles" 
                             Command="{Binding SaveFiles}"
                             IsEnabled="True"
                             Header="Enregistrer" 
-                            LargeIcon="../../Icons/save.png"
+                            LargeIcon="../../Icons/SaveAll.png"
                             Width="100">
                     </Fluent:Button>
                 </Fluent:RibbonGroupBox>

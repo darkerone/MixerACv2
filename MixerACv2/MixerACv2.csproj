@@ -57,8 +57,8 @@
       <HintPath>packages\ControlzEx.3.0.2.4\lib\net45\ControlzEx.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Fluent, Version=6.1.0.233, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Fluent.Ribbon.6.1.0.233\lib\net45\Fluent.dll</HintPath>
+    <Reference Include="Fluent, Version=6.0.0.208, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Fluent.Ribbon.6.0.0.208\lib\net45\Fluent.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -130,9 +130,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Icons\add.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="rename_i2y_icon.ico" />
