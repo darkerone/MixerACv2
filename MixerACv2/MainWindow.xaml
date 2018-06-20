@@ -12,6 +12,8 @@
             <Button Content="Vider la liste" Command="{Binding ClearFilesList}"></Button>
             <Button Content="Supprimer la sélection" Command="{Binding RemoveSelectedFile}"></Button>
             <Button Content="Renommage" Command="{Binding RenameFiles}"></Button>
+            <Button Content="Dérenommage" Command="{Binding UnrenameFiles}"></Button>
+            <Button Content="Enregistrer" Command="{Binding SaveFiles}"></Button> 
         </StackPanel>
         
         <DataGrid ItemsSource="{Binding Files}" 

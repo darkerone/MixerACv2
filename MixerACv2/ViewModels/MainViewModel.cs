@@ -108,6 +108,52 @@ namespace MixerACv2.ViewModels
             }
         }
 
+        public ICommand UnrenameFiles
+        {
+            get
+            {
+                return new DelegateCommand((param) => {
+                    if (Files.Any())
+                    {
+                        foreach(FileViewModel fileVM in Files)
+                        {
+                            // Découpe la chaine selon les "_"
+                            string[] splittedNameArray = fileVM.OldName.Split('_');
+                            
+                            List<string> splittedNameList = new List<string>(splittedNameArray);
+                            // Si le premier élément est bien un nombre
+                            int index;
+                            if (Int32.TryParse(splittedNameList.First(), out index))
+                            {
+                                // Supprime le premier élément
+                                splittedNameList.RemoveAt(0);
+                                // Reconstitue la chaine sans le premier élément
+                                fileVM.NewName = string.Join("_", splittedNameList);
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        public ICommand SaveFiles
+        {
+            get
+            {
+                return new DelegateCommand((param) => {
+                    if (Files.Any())
+                    {
+                        foreach(FileViewModel fileVM in Files)
+                        {
+                            string filePathName = fileVM.FolderPath + "\\" + fileVM.NewName;
+                            System.IO.File.Move(fileVM.FolderPath + "\\" + fileVM.OldName, filePathName);
+                            fileVM.OldName = fileVM.NewName;
+                        }
+                    }
+                });
+            }
+        }
+
         #endregion region
 
         #region Private methods
